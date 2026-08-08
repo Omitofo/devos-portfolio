@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { ProjectFrontmatter, Project } from "@/types/content";
+import type { PageFrontmatter, ProjectFrontmatter, Project, ContentDocument } from "@/types/content";
 
 export const projectSlugs = [
   "atlas-design-system",
@@ -31,6 +31,7 @@ export const projectIndex: ReadonlyArray<
 ];
 
 const contentRoot = path.join(process.cwd(), "content", "projects");
+const pagesRoot = path.join(process.cwd(), "content", "pages");
 
 function parseScalar(value: string): string {
   const trimmed = value.trim();
@@ -75,6 +76,37 @@ function parseFrontmatter(source: string): { frontmatter: ProjectFrontmatter; bo
   }
 
   return { frontmatter, body: match[2].trim() };
+}
+
+export const pageSlugs = ["home", "about"] as const;
+export type PageSlug = (typeof pageSlugs)[number];
+
+function getPageSource(slug: PageSlug): string {
+  return fs.readFileSync(path.join(pagesRoot, `${slug}.md`), "utf8");
+}
+
+function parsePage(source: string): ContentDocument<PageFrontmatter> {
+  const match = source.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  if (!match) throw new Error("Page content is missing front matter.");
+
+  const data: Record<string, string> = {};
+  for (const line of match[1].split("\n")) {
+    const item = line.match(/^([A-Za-z][\w-]*):\s*(.*)$/);
+    if (item) data[item[1]] = parseScalar(item[2]);
+  }
+
+  if (!data.title || !data.description) {
+    throw new Error("Page front matter is incomplete.");
+  }
+
+  return {
+    frontmatter: { title: data.title, description: data.description },
+    body: match[2].trim(),
+  };
+}
+
+export function getPage(slug: PageSlug): ContentDocument<PageFrontmatter> {
+  return parsePage(getPageSource(slug));
 }
 
 export function getProject(slug: ProjectSlug): Project {

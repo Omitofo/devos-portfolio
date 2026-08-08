@@ -816,3 +816,34 @@ small {
     grid-template-columns: 1fr;
   }
 }
+
+/* WP-07 — About page */
+.about-page {
+  padding-block: var(--space-8) var(--space-12);
+}
+
+.about-page__intro {
+  padding-bottom: var(--space-8);
+}
+
+.about-page__intro h1 {
+  max-width: 12ch;
+  margin: var(--space-2) 0 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.about-page__content {
+  padding-top: 0;
+}
+
+@media (min-width: 768px) {
+  .about-page {
+    padding-block: var(--space-12) var(--space-16);
+  }
+
+  .about-page__intro {
+    padding-bottom: var(--space-10);
+  }
+}
