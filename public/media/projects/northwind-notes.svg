@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder artwork for northwind-notes</title>
+  <desc id="desc">Abstract geometric placeholder reserved for the WP-09 media pipeline.</desc>
+  <rect width="1600" height="1000" fill="#e5e5e5"/>
+  <rect x="120" y="120" width="1360" height="760" fill="#ffffff" stroke="#0a0a0a" stroke-width="4"/>
+  <circle cx="520" cy="500" r="170" fill="#1e3a5f"/>
+  <rect x="780" y="350" width="360" height="300" fill="#0a0a0a"/>
+</svg>
