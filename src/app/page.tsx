@@ -1,15 +1,26 @@
+import { IntroBlock } from "@/components/intro-block";
+import { ProjectCard } from "@/components/project-card";
+import { projectIndex } from "@/lib/content";
+
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center px-6 py-24">
-      <div className="max-w-2xl text-center">
-        <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Renatus Cartesius
-        </h1>
-        <p className="mt-4 text-lg text-text-secondary">
-          Portfolio scaffolding is ready. Content and pages will land in the
-          next work packages.
-        </p>
+    <div className="home-page">
+      <div className="container-shell">
+        <IntroBlock />
+
+        <section className="home-work section" aria-labelledby="selected-work-title">
+          <div className="home-work__heading">
+            <p className="eyebrow">Selected work</p>
+            <h2 id="selected-work-title">A few things I&apos;ve made.</h2>
+          </div>
+
+          <div className="project-grid" aria-label="Selected projects">
+            {projectIndex.map((project) => (
+              <ProjectCard key={project.slug} {...project} />
+            ))}
+          </div>
+        </section>
       </div>
-    </main>
+    </div>
   );
 }
