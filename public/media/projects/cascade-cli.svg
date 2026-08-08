@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
-  <title id="title">Placeholder artwork for cascade-cli</title>
-  <desc id="desc">Abstract geometric placeholder reserved for the WP-09 media pipeline.</desc>
-  <rect width="1600" height="1000" fill="#e5e5e5"/>
-  <rect x="120" y="120" width="1360" height="760" fill="#ffffff" stroke="#0a0a0a" stroke-width="4"/>
-  <circle cx="520" cy="500" r="170" fill="#1e3a5f"/>
-  <rect x="780" y="350" width="360" height="300" fill="#0a0a0a"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 540" role="img" aria-labelledby="title desc"><title id="title">Cascade CLI placeholder</title><desc id="desc">Abstract geometric placeholder for the Cascade CLI project.</desc><rect width="540" height="540" fill="#FAFAFA"/><path d="M90 150h220l-70 70h150l-90 90h130l-120 120" fill="none" stroke="#0A0A0A" stroke-width="8" stroke-linejoin="round"/><circle cx="120" cy="150" r="10" fill="#1E3A5F"/></svg>
