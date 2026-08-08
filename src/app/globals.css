@@ -1004,3 +1004,103 @@ small {
     transition: none;
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/* WP-11 — Accessibility & responsive polish                                 */
+/* -------------------------------------------------------------------------- */
+
+.skip-link {
+  position: fixed;
+  top: var(--space-3);
+  left: var(--page-gutter);
+  z-index: 100;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--foreground);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(calc(-100% - var(--space-4)));
+  transition: transform var(--duration-fast) var(--ease-default);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.site-header__wordmark {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-footer__email {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.mobile-nav__panel {
+  max-height: calc(100dvh - 6rem);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.project-detail__content {
+  grid-template-columns: minmax(0, 1fr) minmax(14rem, 20rem);
+  gap: clamp(var(--space-6), 5vw, var(--space-12));
+}
+
+.project-detail__nav-link {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.form-field input,
+.form-field textarea {
+  min-height: 44px;
+}
+
+@media (max-width: 1023px) {
+  .project-detail__content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 639px) {
+  .container-shell {
+    width: 100%;
+  }
+
+  .project-detail__media {
+    min-height: clamp(16rem, 70vw, 28rem);
+  }
+
+  .contact-section__inner {
+    padding-block: var(--space-12);
+  }
+
+  .contact-form__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .button-primary,
+  .contact-form__email {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
+}
