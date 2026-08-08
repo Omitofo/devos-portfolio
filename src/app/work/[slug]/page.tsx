@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProjectDetail } from "@/components/project-detail";
 import { getProject, isProjectSlug, projectIndex, projectSlugs } from "@/lib/content";
+import { absoluteUrl } from "@/lib/site";
 
 type ProjectPageProps = { params: Promise<{ slug: string }> };
 
@@ -13,7 +14,17 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const { slug } = await params;
   if (!isProjectSlug(slug)) return {};
   const project = getProject(slug);
-  return { title: project.frontmatter.title, description: project.frontmatter.summary };
+  return {
+    title: project.frontmatter.title,
+    description: project.frontmatter.summary,
+    alternates: { canonical: `/work/${slug}` },
+    openGraph: {
+      type: "article",
+      title: project.frontmatter.title,
+      description: project.frontmatter.summary,
+      url: absoluteUrl(`/work/${slug}`),
+    },
+  };
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {

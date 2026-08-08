@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { ContactSection } from "@/components/contact-section";
+import { siteConfig } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,12 +13,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Renatus Cartesius",
-    template: "%s · Renatus Cartesius",
+    default: siteConfig.name,
+    template: `%s · ${siteConfig.name}`,
   },
-  description:
-    "Designer and developer focused on calm, precise digital products.",
+  description: siteConfig.description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: siteConfig.locale,
+    siteName: siteConfig.name,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    url: "/",
+  },
 };
 
 export default function RootLayout({

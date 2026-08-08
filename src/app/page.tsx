@@ -1,6 +1,22 @@
+import type { Metadata } from "next";
 import { IntroBlock } from "@/components/intro-block";
 import { ProjectCard } from "@/components/project-card";
-import { projectIndex } from "@/lib/content";
+import { projectIndex, getPage } from "@/lib/content";
+import { absoluteUrl } from "@/lib/site";
+
+const home = getPage("home");
+
+export const metadata: Metadata = {
+  title: home.frontmatter.title,
+  description: home.frontmatter.description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    title: home.frontmatter.title,
+    description: home.frontmatter.description,
+    url: absoluteUrl("/"),
+  },
+};
 
 export default function Home() {
   return (

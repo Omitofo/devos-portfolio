@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
 import { getPage } from "@/lib/content";
+import { absoluteUrl } from "@/lib/site";
 
 const about = getPage("about");
 
 export const metadata: Metadata = {
   title: about.frontmatter.title,
   description: about.frontmatter.description,
+  alternates: { canonical: "/about" },
+  openGraph: {
+    type: "website",
+    title: about.frontmatter.title,
+    description: about.frontmatter.description,
+    url: absoluteUrl("/about"),
+  },
 };
 
 function paragraphs(body: string) {
