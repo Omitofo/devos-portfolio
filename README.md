@@ -52,7 +52,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Implementation follows `implementation.md` in the DevOS portfolio-v1 package.
 
-- **WP-01** (this) — Scaffolding
+- WP-01 — Scaffolding
 - WP-02 — Content model + placeholders
 - WP-03 — Design tokens & global styles (foundation already present)
 - WP-04 → WP-08 + WP-12 — First usable version
@@ -61,7 +61,7 @@ Implementation follows `implementation.md` in the DevOS portfolio-v1 package.
 
 See `src/app/globals.css` and the Visual Blueprint. Key values:
 
-- Background `#FAFAFA`, surface `#FFFFFF`, foreground `#0A0A0A`
+- Background `#FAFAF0`, surface `#FFFFFF`, foreground `#0A0A0A`
 - Accent `#1E3A5F`
 - Typography: Inter only
 - Radius: 4–8 px

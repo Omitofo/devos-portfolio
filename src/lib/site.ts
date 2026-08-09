@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Renatus Cartesius",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://renatuscartesius.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   description: "Designer and developer focused on calm, precise digital products.",
   locale: "en_US",
 } as const;
