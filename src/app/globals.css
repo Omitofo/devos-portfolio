@@ -779,6 +779,7 @@ small {
 .project-detail__nav-link:hover {
   border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
   transform: translateY(-2px);
+  background-color: var(--surface);
 }
 
 .project-detail__nav-link span {
